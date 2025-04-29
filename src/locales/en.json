@@ -1,0 +1,296 @@
+{
+  "appName": "Auto Localizations",
+  "components": {
+    "localeSelector": {
+      "english": "English",
+      "russian": "Russian",
+      "chinese": "Chinese"
+    },
+    "datePicker": {
+      "selectDate": "Select Date"
+    },
+    "modal": {
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    },
+    "table": {
+      "noData": "No data available"
+    },
+    "regionHeatmap": {
+      "topRegions": "Top Regions by Sales",
+      "sales": "sales",
+      "salesByRegion": "Sales by Region",
+      "low": "Low",
+      "high": "High",
+      "popularModels": "Popular Models"
+    },
+    "orderDetails": {
+      "all": "All Statuses",
+      "new": "New",
+      "inProgress": "In Progress",
+      "completed": "Completed"
+    },
+    "contacts": {
+      "active": "Active",
+      "inactive": "Inactive"
+    }
+  },
+  "navigation": {
+    "salesByBrands": "Sales by Brands",
+    "salesByBrandsAndModels": "Sales by Brands and Models",
+    "salesByYears": "Sales by Production Years",
+    "marketAnalysis": "Market Analysis",
+    "orderDetails": "Order Details",
+    "contacts": "Contacts and Volume Clarification",
+    "feedbackStatus": "Feedback Status",
+    "settings": "Settings"
+  },
+  "common": {
+    "back": "Back",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "exportCsv": "Export CSV",
+    "exporting": "Exporting...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "clarify": "Clarify Volume",
+    "contactVia": "Contact via",
+    "loading": "Loading...",
+    "noData": "No data available",
+    "error": "Something went wrong",
+    "reset": "Reset",
+    "page": "Page",
+    "of": "of"
+  },
+  "salesByBrands": {
+    "title": "Sales by Brands",
+    "region": "Region",
+    "year": "Production Year",
+    "brand": "Brand",
+    "deals": "Deals",
+    "revenue": "Revenue",
+    "change": "Change",
+    "contact": "Contact"
+  },
+  "salesByBrandsAndModels": {
+    "title": "Sales by Brands and Models",
+    "model": "Model",
+    "salesIntensity": "Sales Intensity",
+    "expandModels": "Expand Models",
+    "collapseModels": "Collapse Models",
+    "details": "Details",
+    "brandLabel": "Brand:",
+    "allBrands": "All brands",
+    "sales": "Sales",
+    "revenue": "Revenue"
+  },
+  "salesByYears": {
+    "title": "Sales by Production Years",
+    "deals": "Deals",
+    "averageCheck": "Average Check",
+    "yearRange": "Year Range",
+    "exportCsv": "Export CSV",
+    "average": "Average",
+    "totalDeals": "Total Deals",
+    "mostPopularYear": "Most Popular Year",
+    "totalRevenue": "Total Revenue"
+  },
+  "orderDetails": {
+    "title": "Order Details",
+    "orderNumber": "Order #",
+    "brand": "Brand",
+    "model": "Model",
+    "year": "Production Year",
+    "client": "Client",
+    "languages": "Languages",
+    "volume": "Volume",
+    "status": "Status",
+    "actions": "Actions",
+    "clarifyVolume": "Clarify Volume",
+    "contact": "Contact"
+  },
+  "contacts": {
+    "title": "Contacts and Volume Clarification",
+    "client": "Client",
+    "contact": "Contact Person",
+    "phone": "Phone",
+    "email": "Email",
+    "messenger": "Messenger",
+    "status": "Status",
+    "requestVolume": "Request Volume",
+    "viewStatus": "View Status"
+  },
+  "feedback": {
+    "title": "Feedback Status",
+    "pending": "Pending",
+    "received": "Received",
+    "partial": "Partial",
+    "all": "All statuses",
+    "active": "Active",
+    "inactive": "Inactive",
+    "new": "New",
+    "inProgress": "In Progress",
+    "completed": "Completed",
+    "addNote": "Add Note",
+    "date": "Date",
+    "client": "Client",
+    "subject": "Subject",
+    "volume": "Volume"
+  },
+  "modal": {
+    "clarifyVolume": {
+      "title": "Clarify Volume",
+      "currentVolume": "Current Volume",
+      "newVolume": "New Volume",
+      "comment": "Comment",
+      "submit": "Submit Request"
+    },
+    "requestVolume": {
+      "title": "Request Volume",
+      "client": "Client",
+      "contact": "Contact Person",
+      "message": "Message",
+      "dueDate": "Due Date",
+      "submit": "Submit Request",
+      "defaultMessage": "Hello!\n\nPlease provide sales volume information for the following models:\n- {models}\n\nRegards,\n[Your name]"
+    }
+  },
+  "toast": {
+    "success": "Success!",
+    "error": "Error!",
+    "requestSent": "Volume clarification request sent",
+    "messageSent": "Message sent successfully",
+    "exportSuccess": "Export completed successfully"
+  },
+  "regions": {
+    "all": "All regions",
+    "russia": "Russia",
+    "belarus": "Belarus",
+    "kazakhstan": "Kazakhstan",
+    "uzbekistan": "Uzbekistan",
+    "ukraine": "Ukraine",
+    "georgia": "Georgia",
+    "armenia": "Armenia",
+    "azerbaijan": "Azerbaijan",
+    "chinaPorts": "China Ports",
+    "other": "Others"
+  },
+  "years": {
+    "all": "All years"
+  },
+  "marketAnalysis": {
+    "title": "Chinese Brands Market Analysis",
+    "totalSales": "Total Sales",
+    "marketShare": "Market Share",
+    "averagePrice": "Average Price",
+    "growthRate": "Growth Rate",
+    "salesByBrands": "Sales Dynamics by Brands",
+    "salesByRegions": "Sales Comparison by Regions",
+    "salesDistribution": "Sales Distribution by Regions of Russia",
+    "marketShareByBrands": "Market Share by Brands",
+    "growthComparison": "Growth Dynamics Compared to Last Year",
+    "trends": "Market Trends",
+    "growingDemand": "Growing Demand",
+    "popularModels": "Popular Models",
+    "businessSegment": "Business Segment",
+    "electricVehicles": "Electric Vehicles",
+    "demandGrowthText": "Demand for Chinese cars in Russia has grown by {growth}% in the last year.",
+    "popularModelsText": "Most popular models: {models}.",
+    "businessSegmentText": "Growth of {growth}% observed in the business segment.",
+    "evGrowthText": "Electric vehicle sales have grown by {growth}% in {year}."
+  },
+  "modelDetails": {
+    "title": "Model Information",
+    "back": "Back",
+    "relatedModels": "Related Models",
+    "localization": "Localization",
+    "sales": "Sales",
+    "specifications": "Specifications",
+    "averagePrice": "Average Price",
+    "newModel": "New Model",
+    "electricVehicle": "Electric Vehicle",
+    "salesByMonth": "Sales Dynamics by Month",
+    "salesByRegion": "Sales by Region",
+    "localizationStatus": "Localization Status",
+    "localizedDocuments": "Localized Documents",
+    "localizationLanguages": "Localization Languages",
+    "completed": "completed",
+    "maximum": "Maximum",
+    "salesUnit": "sales",
+    "specs": {
+      "basic": "Basic Specifications",
+      "bodyType": "Body Type",
+      "length": "Length",
+      "width": "Width",
+      "height": "Height",
+      "wheelbase": "Wheelbase",
+      "weight": "Weight",
+      "powertrainSection": "Powertrain",
+      "type": "Type",
+      "electric": "Electric Motor",
+      "power": "Power",
+      "torque": "Torque",
+      "battery": "Battery",
+      "range": "Range",
+      "driveType": "Drive Type",
+      "awd": "All-wheel Drive",
+      "performanceSection": "Performance",
+      "acceleration": "0-100 km/h Acceleration",
+      "topSpeed": "Top Speed",
+      "energyConsumption": "Energy Consumption"
+    },
+    "units": {
+      "mm": "mm",
+      "kg": "kg",
+      "hp": "hp",
+      "nm": "Nm",
+      "kwh": "kWh",
+      "km": "km",
+      "sec": "s",
+      "kmh": "km/h",
+      "kwhPer100km": "kWh/100km"
+    },
+    "vehicleTypes": {
+      "suv": "SUV",
+      "sedan": "Sedan",
+      "hatchback": "Hatchback",
+      "pickup": "Pickup"
+    }
+  },
+  "months": {
+    "jan": "Jan",
+    "feb": "Feb",
+    "mar": "Mar",
+    "apr": "Apr",
+    "may": "May",
+    "jun": "Jun",
+    "jul": "Jul",
+    "aug": "Aug",
+    "sep": "Sep",
+    "oct": "Oct",
+    "nov": "Nov",
+    "dec": "Dec"
+  },
+  "settings": {
+    "appearance": "Appearance",
+    "theme": "Theme",
+    "lightTheme": "Light",
+    "darkTheme": "Dark",
+    "systemTheme": "System Default",
+    "language": "Language",
+    "notifications": "Notifications",
+    "emailNotifications": "Email Notifications",
+    "browserNotifications": "Browser Notifications",
+    "dataPreferences": "Data Preferences",
+    "dateFormat": "Date Format",
+    "currency": "Currency",
+    "account": "Account Information",
+    "email": "Email Address",
+    "lastLogin": "Last Login",
+    "changePassword": "Change Password",
+    "resetToDefaults": "Reset to Defaults",
+    "saveChanges": "Save Changes"
+  }
+}
