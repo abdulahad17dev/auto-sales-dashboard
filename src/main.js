@@ -15,7 +15,7 @@ import './styles/main.css'
 // Create i18n instance
 export const i18n = createI18n({
   legacy: false,
-  locale: localStorage.getItem('locale') || 'ru',
+  locale: localStorage.getItem('locale') || 'zh',
   fallbackLocale: 'en',
   messages: {
     en,

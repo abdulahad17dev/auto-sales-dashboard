@@ -1,0 +1,203 @@
+/* Global Mobile Adaptations */
+
+/* Fix for mobile sidebar and content */
+.sidebar-hidden {
+  display: none !important;
+}
+
+/* Fix for content spacing on mobile */
+@media (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Предотвращаем горизонтальную прокрутку */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Исправляем контейнеры */
+  .content-container {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  
+  /* Скрываем любые остатки сайдбара */
+  .content-container::before {
+    display: none !important;
+  }
+  
+  /* Улучшаем кнопку меню */
+  .mobile-menu-btn {
+    z-index: 9999 !important;
+  }
+  
+  /* Гарантируем, что сайдбар скрыт вне экрана */
+  .sidebar:not(.active) {
+    transform: translateX(-100%) !important;
+    width: 0 !important;
+  }
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.25rem !important;
+  }
+  
+  h3 {
+    font-size: 1.125rem !important;
+  }
+  
+  body {
+    font-size: 0.875rem !important;
+  }
+  
+  /* Reduce padding for all containers */
+  .content-container main {
+    padding: 0.75rem !important;
+  }
+  
+  /* Ensure all charts are responsive */
+  .chart-wrapper {
+    min-height: 250px !important;
+    height: auto !important;
+  }
+  
+  /* Improve form elements for touch */
+  button, .btn-primary, .btn-accent, .btn-cancel, .action-btn {
+    min-height: 44px !important;
+    padding: 0.75rem 1rem !important;
+  }
+  
+  input, select, textarea {
+    font-size: 16px !important; /* Prevent zoom on iOS */
+    padding: 0.75rem !important;
+  }
+  
+  /* Fix tables for small screens */
+  .table-container {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Make cards full width on mobile */
+  .card, .metric-card, .chart-block, .summary-card, .trend-card {
+    width: 100% !important;
+  }
+  
+  /* Better spacing for stacked elements */
+  .stacked-mobile {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  .stacked-mobile > * {
+    width: 100% !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  /* Fix filters layouts */
+  .filters {
+    display: flex;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+  
+  .filter-select, .filter-input, .year-picker, .date-picker {
+    width: 100% !important;
+  }
+  
+  .filter-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100% !important;
+    margin-top: 0.5rem !important;
+  }
+  
+  /* Better modal experience on mobile */
+  .modal-content {
+    width: 95% !important;
+    max-width: 95% !important;
+    margin: 0.5rem auto !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+  
+  /* Hide decorative elements on mobile */
+  .desktop-only {
+    display: none !important;
+  }
+  
+  /* Ensure buttons are large enough for touch */
+  .nav-item, .breadcrumb-link, .breadcrumb-item {
+    padding: 0.75rem !important;
+  }
+  
+  /* Fix header for small screens */
+  .page-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+  }
+  
+  .header-controls {
+    width: 100% !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 479px) {
+  /* Even smaller padding */
+  .content-container main {
+    padding: 0.5rem !important;
+  }
+  
+  /* Stack action buttons on very small screens */
+  .actions-container {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+  
+  .action-btn {
+    width: 100% !important;
+  }
+  
+  /* Smaller chart heights for tiny screens */
+  .chart-wrapper {
+    min-height: 200px !important;
+  }
+  
+  /* Compact tables */
+  .table th, .table td {
+    padding: 0.5rem !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+/* Common fixes for all mobile views */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.touch-scroll::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
+}
+
+/* Toast notifications positioning for mobile */
+.toast-notification {
+  width: 90% !important;
+  left: 5% !important;
+  bottom: 1rem !important;
+}
+
+/* Fix for select dropdowns on mobile */
+.select-dropdown {
+  max-height: 40vh !important;
+}

@@ -1,12 +1,13 @@
 <template>
-  <div :class="['sidebar', { 'sidebar-collapsed': isCollapsed }]">
-    <div :class="['sidebar-header', { 'header-collapsed': isCollapsed }]">
+  <div :class="['sidebar', { 'sidebar-collapsed': isCollapsed && !isMobile }]">
+    <div :class="['sidebar-header', { 'header-collapsed': isCollapsed && !isMobile }]">
       <div class="logo-container">
         <transition name="fade" mode="out-in">
-          <span v-if="!isCollapsed" key="text" class="logo-text">{{ $t('appName') }}</span>
+          <span key="text" class="logo-text">{{ $t('appName') }}</span>
         </transition>
       </div>
-      <button @click="toggleSidebar" class="collapse-btn" :aria-label="isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'">
+      <!-- Only show collapse button on desktop, not on mobile -->
+      <button v-if="!isMobile" @click="toggleSidebar" class="collapse-btn" :aria-label="isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'">
         <ChevronLeft v-if="!isCollapsed" class="icon" />
         <ChevronRight v-else class="icon" />
       </button>
@@ -20,14 +21,14 @@
         :class="['nav-item', { active: isActive(item.path) }]"
       >
         <component :is="item.icon" class="nav-icon" />
-        <span v-if="!isCollapsed" class="nav-text">{{ $t(item.label) }}</span>
+        <span v-if="!isCollapsed || isMobile" class="nav-text">{{ $t(item.label) }}</span>
       </RouterLink>
     </nav>
     
     <div class="sidebar-footer">
       <RouterLink to="/settings" class="settings-btn">
         <Settings class="icon" />
-        <span v-if="!isCollapsed" class="settings-text">{{ $t('navigation.settings') }}</span>
+        <span v-if="!isCollapsed || isMobile" class="settings-text">{{ $t('navigation.settings') }}</span>
       </RouterLink>
     </div>
   </div>
@@ -65,13 +66,27 @@ const emit = defineEmits(['collapse-change'])
 
 const handleResize = () => {
   const width = window.innerWidth
+  const wasMobile = isMobile.value
   isMobile.value = width <= 767
   
-  // Auto-collapse on desktop medium screens
-  if (width > 767 && width <= 1279) {
-    isCollapsed.value = true
-  } else if (width > 1279) {
-    isCollapsed.value = false
+  // Handle transition between mobile and desktop
+  if (wasMobile !== isMobile.value) {
+    // When transitioning from mobile to desktop
+    if (!isMobile.value) {
+      // Apply desktop collapsing rules
+      if (width <= 1279) {
+        isCollapsed.value = true
+      } else {
+        isCollapsed.value = false
+      }
+    }
+  } else if (!isMobile.value) {
+    // Only apply auto-collapse when in desktop mode
+    if (width > 767 && width <= 1279) {
+      isCollapsed.value = true
+    } else if (width > 1279) {
+      isCollapsed.value = false
+    }
   }
 }
 
@@ -173,8 +188,9 @@ const navItems = [
   justify-content: space-between;
   padding: 1rem 0.75rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  height: 56px;
+  height: 60px;
   overflow: hidden;
+  background-color: #1a2433;
 }
 
 .sidebar-collapsed .sidebar-header {
@@ -209,10 +225,11 @@ const navItems = [
 
 .logo-text {
   font-weight: 600;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   white-space: nowrap;
   display: inline-block;
   width: 100%;
+  color: white;
 }
 
 .logo-icon {
@@ -235,8 +252,8 @@ const navItems = [
 }
 
 .collapse-btn {
-  width: 2rem;
-  height: 2rem;
+  width: 2.25rem;
+  height: 2.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -249,6 +266,28 @@ const navItems = [
 
 .collapse-btn:hover {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile specific styles for collapse button */
+@media (max-width: 767px) {
+  .collapse-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 0.625rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .collapse-btn:active {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(0.95);
+  }
+  
+  .collapse-btn .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+  }
 }
 
 .header-collapsed {
@@ -399,15 +438,73 @@ const navItems = [
     transform: translateX(-100%);
     width: 18rem;
     transition: transform 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   }
   
   .sidebar.sidebar-collapsed {
     transform: translateX(-100%);
+    width: 18rem; /* Keep same width when collapsed on mobile */
   }
   
   .sidebar:not(.sidebar-collapsed) {
     transform: translateX(0);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Make navigation text more visible on mobile */
+  .nav-text, .settings-text {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    margin-left: 1rem;
+    display: block !important;
+  }
+  
+  /* Improve spacing for mobile nav items */
+  .nav-item {
+    padding: 0.75rem 1rem;
+    height: auto;
+    min-height: 48px; /* Better touch target */
+  }
+  
+  /* Improve spacing for settings button */
+  .settings-btn {
+    height: auto;
+    min-height: 42px;
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Mobile specific sidebar header */
+  .sidebar-header {
+    height: auto;
+    min-height: 56px;
+    padding: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center since there's no close button */
+    background-color: #1a2433; /* Darker blue for better contrast */
+  }
+  
+  /* Mobile specific logo text style */
+  .logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    display: block !important;
+    width: 100%;
+  }
+  
+  /* Make logo container full width on mobile since no button */
+  .logo-container {
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
   }
 }
 </style>

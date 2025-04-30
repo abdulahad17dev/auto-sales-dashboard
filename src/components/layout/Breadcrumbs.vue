@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { ChevronRight } from 'lucide-vue-next'
@@ -30,6 +30,20 @@ import { ChevronRight } from 'lucide-vue-next'
 const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
+const isMobile = ref(window.innerWidth <= 767)
+
+// Watch for window resize to update mobile status
+const handleResize = () => {
+  isMobile.value = window.innerWidth <= 767
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
 
 const breadcrumbs = computed(() => {
   const matched = route.matched.map(record => {
@@ -39,6 +53,11 @@ const breadcrumbs = computed(() => {
       name = t(record.meta.titleKey)
     } else if (record.meta.title) {
       name = record.meta.title
+    }
+    
+    // Truncate long titles for mobile
+    if (isMobile.value && name && name.length > 20) {
+      name = name.substring(0, 20) + '...'
     }
     
     return {
